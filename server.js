@@ -11,7 +11,7 @@ app.get("/api/timestamp/:date_string?",(req,res)=>{
   //console.log(new Date(date_string).toUTCString())
   console.log("string"+new Date(int_date))
   //console.log(new Date(int_date).toUTCString())
-  
+  console.log(date_string.length, int_date.toString().length)
   //Checking for empty string in a req
   if(!date_string && isNaN(int_date)/*typeof date_string=="undefined"||date_string.length<1*/){ 
     console.log("Empty req was received")
@@ -21,7 +21,7 @@ app.get("/api/timestamp/:date_string?",(req,res)=>{
     return;
   };
   //Checking If date is invalid e.g. tdew5fsd
-  if((new Date(date_string)=="Invalid Date" && date_string.length!==int_date.length) || new Date(int_date)=="Invalid Date"){ 
+  if((new Date(date_string)=="Invalid Date" && date_string.length!==int_date.toString().length) || new Date(int_date)=="Invalid Date"){ 
     res.json({"error" : "Invalid Date"});
     return;
   };
